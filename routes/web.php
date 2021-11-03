@@ -16,6 +16,7 @@ Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('bask
 Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basketPlace');
 
 Route::post('/basket/add/{id}','App\Http\Controllers\BasketController@basketAdd')->name('basketAdd');
+Route::post('/basket/remove/{id}','App\Http\Controllers\BasketController@basketRemove')->name('basketRemove');
 
 Route::get('/','App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories','App\Http\Controllers\MainController@categories')->name('categories');

@@ -20,7 +20,8 @@
             @endforeach
             <tr>
                 <td colspan="3">Общая стоимость:</td>
-                <td>71990 ₽</td>
+
+                <td>  {{$order->getFullPrice()}}₽</td>
             </tr>
             </tbody>
         </table>
