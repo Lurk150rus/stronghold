@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket');
 Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basketPlace');
 
+Route::post('/basket/confirm','App\Http\Controllers\BasketController@basketConfirm')->name('basketConfirm');
 Route::post('/basket/add/{id}','App\Http\Controllers\BasketController@basketAdd')->name('basketAdd');
 Route::post('/basket/remove/{id}','App\Http\Controllers\BasketController@basketRemove')->name('basketRemove');
 

@@ -1,7 +1,6 @@
 @extends('master', ["file"=>'basket'])
 @section('title', 'Корзина')
 @section('content')
-    <p class="alert alert-success">Добавлен товар iPhone X 64GB</p>
     <h1>Корзина</h1>
     <p>Оформление заказа</p>
     <div class="panel">
@@ -27,7 +26,7 @@
         </table>
         <br>
         <div class="btn-group pull-right" role="group">
-            <a type="button" class="btn btn-success" href="/basket/place">Оформить заказ</a>
+            <a type="button" class="btn btn-success" href="{{route('basketPlace')}}">Оформить заказ</a>
         </div>
     </div>
 @endsection
