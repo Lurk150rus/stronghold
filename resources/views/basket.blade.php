@@ -14,7 +14,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($order->product as $product)
+            @foreach($order->products as $product)
                 @include('components.basket_item.basket_item', compact($product))
             @endforeach
             <tr>

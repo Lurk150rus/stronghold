@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false
+]);
+
 Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket');
 Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basketPlace');
 
@@ -25,3 +32,7 @@ Route::get('/{category}','App\Http\Controllers\MainController@category')->name('
 Route::get('/{category}/{product?}','App\Http\Controllers\MainController@product')->name('product');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

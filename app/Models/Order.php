@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,12 +10,13 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function product(){
+    public function products()
+    {
         return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
     }
     public function getFullPrice(){
         $sum = 0;
-        foreach ($this->product as $product){
+        foreach ($this->products as $product){
             $sum += $product->getPriceForCount();
         }
         return $sum;
