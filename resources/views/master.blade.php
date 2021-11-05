@@ -41,22 +41,13 @@
 
             <ul class="nav navbar-nav navbar-right">
                 @guest
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Зарегистрироваться</a>
-                        </li>
-                    </ul>
+                    <li><a href="{{ route('login') }}">Панель администратора</a></li>
                 @endguest
 
                 @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
-                </li>
+                    <li><a href="{{ route('home') }}">Панель администратора</a></li>
+                    <li><a href="{{ route('getLogout') }}">Выйти</a></li>
                 @endauth
-
             </ul>
         </div>
     </div>

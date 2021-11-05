@@ -18,7 +18,7 @@ Auth::routes([
     'confirm' => false,
     'verify' => false
 ]);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('home');
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('getLogout');
 
 
