@@ -40,7 +40,22 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login">Войти</a></li>
+                @guest
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Зарегистрироваться</a>
+                        </li>
+                    </ul>
+                @endguest
+
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
+                </li>
+                @endauth
 
             </ul>
         </div>
@@ -54,12 +69,12 @@
             <p class="alert alert-success">
                 {{session()->get('success')}}
             </p>
-
-        @else
+        @endif
+        @if(session()->has('warning'))
             <p class="alert alert-warning">
                 {{session()->get('warning')}}
             </p>
-        @endif;
+        @endif
         @yield('content')
     </div>
 </div>

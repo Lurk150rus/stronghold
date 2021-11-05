@@ -18,6 +18,9 @@ Auth::routes([
     'confirm' => false,
     'verify' => false
 ]);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('getLogout');
+
 
 Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket');
 Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basketPlace');
@@ -33,6 +36,3 @@ Route::get('/{category}/{product?}','App\Http\Controllers\MainController@product
 
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
