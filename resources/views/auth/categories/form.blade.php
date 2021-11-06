@@ -37,7 +37,7 @@
                                 @enderror
 
                                 <input type="text" class="form-control" name="code" id="code"
-                                       value="{{old('code', @isset($category) ? $category->code : null }}">
+                                       value="{{old('code', isset($category) ? $category->code : null) }}">
                             </div>
                         </div>
                         <br>
@@ -50,7 +50,7 @@
                                 </div>
                                 @enderror
                                 <input type="text" class="form-control" name="name" id="name"
-                                       value="{{old('name', @isset($category) ? $category->name : null }}">
+                                       value="{{old('name', isset($category) ? $category->name : null) }}">
                             </div>
                         </div>
                         <br>
@@ -63,7 +63,7 @@
                                 </div>
                                 @enderror
 							<textarea name="description" id="description" cols="72"
-                                      rows="7">{{old('description', @isset($category) ? $category->description : null }}</textarea>
+                                      rows="7">{{old('description', isset($category) ? $category->description : null) }}</textarea>
                             </div>
                         </div>
                         <br>
