@@ -21,11 +21,12 @@ Auth::routes([
 
 Route::group([
     'middleware' => 'auth',
-    'namespace' => 'Admin',
+    'prefix' => 'admin'
 ], function (){
     Route::group(['middleware' => 'is_admin'], function (){
         Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('home');
     });
+    Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
 }
 );
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('getLogout');
