@@ -1,4 +1,4 @@
-<h1>Комок</h1>
+<h1>Stronghold</h1>
 <ul>
 <li>Запустить докер - docker-compose up</li>
 <li>Сделать дамп - make mysql_container + make dump(внутри контейнера)</li>
