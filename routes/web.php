@@ -18,17 +18,28 @@ Auth::routes([
     'confirm' => false,
     'verify' => false
 ]);
-Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('home');
+
+Route::group([
+    'middleware' => 'auth',
+    'namespace' => 'Admin',
+], function (){
+    Route::group(['middleware' => 'is_admin'], function (){
+        Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('home');
+    });
+}
+);
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('getLogout');
 
-
-Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket');
-Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basketPlace');
-
-Route::post('/basket/confirm','App\Http\Controllers\BasketController@basketConfirm')->name('basketConfirm');
 Route::post('/basket/add/{id}','App\Http\Controllers\BasketController@basketAdd')->name('basketAdd');
-Route::post('/basket/remove/{id}','App\Http\Controllers\BasketController@basketRemove')->name('basketRemove');
+Route::group([
+    'middleware'=>'basket_not_empty'
+    ], function (){
+    Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket');
+    Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basketPlace');
 
+    Route::post('/basket/confirm','App\Http\Controllers\BasketController@basketConfirm')->name('basketConfirm');
+    Route::post('/basket/remove/{id}','App\Http\Controllers\BasketController@basketRemove')->name('basketRemove');
+});
 Route::get('/','App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories','App\Http\Controllers\MainController@categories')->name('categories');
 Route::get('/{category}','App\Http\Controllers\MainController@category')->name('category');
