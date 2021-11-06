@@ -2,7 +2,7 @@
     <div class="thumbnail">
         <div class="labels">
         </div>
-        <img src="/storage/products/gopro.jpg" alt="{{$product->name}}">
+        <img src="{{ Storage::url($product->image) }}" alt="{{$product->name}}">
             {{$product->category->name}}
         <div class="caption">
             <h3>{{$product->name}}</h3>

@@ -27,6 +27,7 @@ Route::group([
         Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('home');
     });
     Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+    Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
 }
 );
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('getLogout');
