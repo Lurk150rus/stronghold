@@ -23,7 +23,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{route('index')}}">Все товары</a></li>
-                <li ><a href="{{route('categories')}}">Категории</a>
+                <li ><a href="{{route('categories')}}/">Категории</a>
                 </li>
                 <li ><a href="{{route('basket')}}">В корзину</a></li>
                 <li><a href="">Сбросить проект в начальное состояние</a></li>
