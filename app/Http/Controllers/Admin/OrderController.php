@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,6 @@ class OrderController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     /**
@@ -26,5 +26,10 @@ class OrderController extends Controller
     {
         $orders = Order::where('status', 1)->get();
         return view('auth.orders.index', compact('orders'));
+    }
+    public function order(Request $request){
+        $order = Order::where('id', $request->id)->first();
+
+        return view('auth.orders.show', compact('order'));
     }
 }
