@@ -28,11 +28,7 @@
                 <div class="input-group row">
                     <label for="code" class="col-sm-2 col-form-label">Код: </label>
                     <div class="col-sm-6">
-                        @error('code')
-                        <div class="alert alert-danger">
-                            {{$message}}
-                        </div>
-                        @enderror
+                        @include('auth.layouts.error', ['fieldname'=>'code'])
                         <input type="text" class="form-control" name="code" id="code"
                                value="@isset($product){{ $product->code }}@endisset">
                     </div>
@@ -41,11 +37,7 @@
                 <div class="input-group row">
                     <label for="name" class="col-sm-2 col-form-label">Название: </label>
                     <div class="col-sm-6">
-                        @error('name')
-                        <div class="alert alert-danger">
-                            {{$message}}
-                        </div>
-                        @enderror
+                        @include('auth.layouts.error', ['fieldname'=>'name'])
                         <input type="text" class="form-control" name="name" id="name"
                                value="@isset($product){{ $product->name }}@endisset">
                     </div>
@@ -70,13 +62,9 @@
                 <div class="input-group row">
                     <label for="description" class="col-sm-2 col-form-label">Описание: </label>
                     <div class="col-sm-6">
-                        @error('description')
-                        <div class="alert alert-danger">
-                            {{$message}}
-                        </div>
-                        @enderror
-								<textarea name="description" id="description" cols="72"
-                                          rows="7">@isset($product){{ $product->description }}@endisset</textarea>
+                        @include('auth.layouts.error', ['fieldname'=>'description'])
+                        <textarea name="description" id="description" cols="72"
+                                  rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                     </div>
                 </div>
                 <br>
@@ -92,15 +80,33 @@
                 <div class="input-group row">
                     <label for="price" class="col-sm-2 col-form-label">Цена: </label>
                     <div class="col-sm-2">
-                        @error('price')
-                        <div class="alert alert-danger">
-                            {{$message}}
-                        </div>
-                        @enderror
+                        @include('auth.layouts.error', ['fieldname'=>'price'])
+
                         <input type="text" class="form-control" name="price" id="price"
                                value="@isset($product){{ $product->price }}@endisset">
                     </div>
                 </div>
+                <br>
+                @foreach([
+                'hit'=>'Хит',
+                'new'=>'Новинка',
+                'recommend'=>'Рекомендуемые'
+                ] as $field => $title)
+                    <div class="form-group row">
+                        <label for="code" class="col-sm-2 col-form-label">{{$field}}: </label>
+                        <div class="col-sm-6">
+                            <input type="checkbox" class="form-control" name="{{$field}}" id="{{$field}}"
+                                   @isset($product)
+                                   @if($product->$field === 1)
+                                   checked
+                                   @endif
+                                @endisset
+                            >
+
+
+                        </div>
+                    </div>
+                @endforeach
                 <button class="btn btn-success">Сохранить</button>
             </div>
         </form>
