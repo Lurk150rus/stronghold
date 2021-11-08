@@ -51,5 +51,7 @@
             @endforeach
             </tbody>
         </table>
+        {{$orders->links('vendor.pagination.default')}}
+
     </div>
 @endsection
