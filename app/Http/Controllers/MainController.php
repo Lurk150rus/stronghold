@@ -10,21 +10,21 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function index(ProductsFilterRequest $request){
-        $productsQuery = Product::with('category');
 
+        $productsQuery = Product::with('category');
         if ($request->filled('price_from')){
             $productsQuery->where('price', '>=', $request->price_from);
         }
         if ($request->filled('price_to')){
-            $productsQuery->where('price', '<=', $request->price_from);
+            $productsQuery->where('price', '<=', $request->price_to);
         }
         foreach (['hit','recommend', 'new'] as $field){
             if ($request->has($field)){
-                $productsQuery->where($field, 1);
+                $productsQuery->$field();
             }
         }
 
-        $products = $productsQuery->paginate(1)->withPath($request->getUri());
+        $products = $productsQuery->paginate(6)->withPath($request->getUri());
         return view('index', compact('products'));
     }
 

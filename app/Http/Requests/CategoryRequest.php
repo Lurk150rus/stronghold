@@ -29,7 +29,7 @@ class CategoryRequest extends FormRequest
             'description' => 'required|min:5'
         ];
 
-        if ($this->route()->name('categories.update')){
+        if ($this->route()->getName('categories.update') === 'categories.update'){
             $rules['code'] .= ',' . $this->route()->parameter('category')->id;
         }
         return $rules;

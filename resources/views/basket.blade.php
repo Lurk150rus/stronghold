@@ -14,13 +14,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($order->products as $product)
+            @foreach($order->products()->with('category')->get() as $product)
                 @include('components.basket_item.basket_item', compact($product))
             @endforeach
             <tr>
                 <td colspan="3">Общая стоимость:</td>
 
-                <td>  {{$order->getFullPrice()}}₽</td>
+                <td>  {{$order->getFullSum()}}₽</td>
             </tr>
             </tbody>
         </table>
