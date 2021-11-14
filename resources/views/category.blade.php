@@ -10,7 +10,8 @@
 <p>
     {{$category->description}}
 </p>
-<div class="row">
+
+<div class="row equal-group">
     @foreach($category->products as $product)
         @include('components.card.card', compact($product))
     @endforeach

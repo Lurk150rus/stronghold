@@ -1,5 +1,5 @@
 <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+    <div class="thumbnail equal-item">
         <div class="labels">
             @if($product->isNew())
                 <span class="badge badge-success">Новинка</span>

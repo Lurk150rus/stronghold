@@ -52,3 +52,11 @@ footer {
     color: #99979c;
     background-color: #2a2730;
 }
+/*
+Some fixes
+ */
+.thumbnail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

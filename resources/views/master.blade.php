@@ -13,6 +13,8 @@
     <script src="/js/bootstrap.min.js"></script>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/starter-template.css" rel="stylesheet">
+    <script src="/js/equlize.js" ></script>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -26,9 +28,7 @@
                 <li @routeactive('categor*')><a href="{{ route('categories') }}/">Категории</a>
                 </li>
                 <li @routeactive('basket*')><a href="{{ route('basket') }}">В корзину</a></li>
-                <li><a href="{{ route('index') }}">Сбросить проект в начальное состояние</a></li>
             </ul>
-
             <ul class="nav navbar-nav navbar-right">
                 @guest
                     <li><a href="{{ route('login') }}">Войти</a></li>

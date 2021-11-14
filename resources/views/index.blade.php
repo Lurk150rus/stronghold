@@ -27,7 +27,7 @@
             </div>
         </div>
     </form>
-    <div class="row">
+    <div class="row equal-group">
         @foreach($products as $product)
             @include('components.card.card', compact($product))
         @endforeach

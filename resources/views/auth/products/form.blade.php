@@ -93,7 +93,7 @@
                 'recommend'=>'Рекомендуемые'
                 ] as $field => $title)
                     <div class="form-group row">
-                        <label for="code" class="col-sm-2 col-form-label">{{$field}}: </label>
+                        <label for="code" class="col-sm-2 col-form-label">{{$title}}: </label>
                         <div class="col-sm-6">
                             <input type="checkbox" class="form-control" name="{{$field}}" id="{{$field}}"
                                    @isset($product)
