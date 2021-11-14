@@ -4,7 +4,7 @@
 
 @section('content')
     <form method="POST" action="{{ route('register') }}" aria-label="Register">
-        @csrf
+        @include('auth.layouts.error', ['fieldname'=>'name'])
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">Имя</label>
 
@@ -15,6 +15,7 @@
             </div>
         </div>
 
+        @include('auth.layouts.error', ['fieldname'=>'email'])
         <div class="form-group row">
             <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail</label>
 
@@ -25,13 +26,12 @@
             </div>
         </div>
 
+        @include('auth.layouts.error', ['fieldname'=>'password'])
         <div class="form-group row">
             <label for="password" class="col-md-4 col-form-label text-md-right">Пароль</label>
-
             <div class="col-md-6">
                 <input id="password" type="password" class="form-control"
                        name="password" required>
-
             </div>
         </div>
 
@@ -50,5 +50,6 @@
                 </button>
             </div>
         </div>
+        @csrf
     </form>
 @endsection
