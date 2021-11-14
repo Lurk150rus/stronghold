@@ -7,6 +7,7 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class CategoryController extends Controller
 {
@@ -43,8 +44,13 @@ class CategoryController extends Controller
         $params = $request->all();
         unset($params['image']);
         if ($request->has('image')){
-            $path = $request->file('image')->store('categories');
-            $params['image'] = $path;
+            $image = $request->file('image');
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $storagePath = public_path('storage/categories/'. date('Y-m-d-H:i:s'). "-" . $filename);
+            $publicPath = 'categories/'. date('Y-m-d-H:i:s'). "-" . $filename;
+            Image::make($image->getRealPath())->resize(300, 300)->save($storagePath);;
+
+            $params['image'] = $publicPath;
         }
 
         Category::create($params);
@@ -84,10 +90,16 @@ class CategoryController extends Controller
     {
         $params = $request->all();
         unset($params['image']);
+
         if ($request->has('image')){
             Storage::delete($category->image);
-            $path = $request->file('image')->store('categories');
-            $params['image'] = $path;;
+            $image = $request->file('image');
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $storagePath = public_path('storage/categories/'. date('Y-m-d-H:i:s'). "-" . $filename);
+            $publicPath = 'categories/'. date('Y-m-d-H:i:s'). "-" . $filename;
+            Image::make($image->getRealPath())->resize(300, 300)->save($storagePath);;
+
+            $params['image'] = $publicPath;
         }
 
 

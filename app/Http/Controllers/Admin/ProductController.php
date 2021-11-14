@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -43,10 +44,19 @@ class ProductController extends Controller
     {
         $params = $request->all();
         unset($params['image']);
+
         if ($request->has('image')){
-            $path = $request->file('image')->store('products');
-            $params['image'] = $path;
+            $image = $request->file('image');
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $storagePath = public_path('storage/products/'. date('Y-m-d-H:i:s'). "-" . $filename);
+            $publicPath = 'products/'. date('Y-m-d-H:i:s'). "-" . $filename;
+            Image::make($image->getRealPath())->resize(300, 300)->save($storagePath);;
+
+            $params['image'] = $publicPath;
         }
+
+
+
         Product::create($params);
         return redirect()->route('products.index');
     }
@@ -87,8 +97,13 @@ class ProductController extends Controller
         unset($params['image']);
         if ($request->has('image')){
             Storage::delete($product->image);
-            $path = $request->file('image')->store('products');
-            $params['image'] = $path;
+            $image = $request->file('image');
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $storagePath = public_path('storage/products/'. date('Y-m-d-H:i:s'). "-" . $filename);
+            $publicPath = 'products/'. date('Y-m-d-H:i:s'). "-" . $filename;
+            Image::make($image->getRealPath())->resize(300, 300)->save($storagePath);;
+
+            $params['image'] = $publicPath;
         }
         foreach (['new', 'hit', 'recommend'] as $fieldName){
             if (!isset($params[$fieldName])){

@@ -59,4 +59,3 @@ Route::get('/{category}','App\Http\Controllers\MainController@category')->name('
 Route::get('/{category}/{product}','App\Http\Controllers\MainController@product')->name('product');
 
 
-
