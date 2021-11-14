@@ -20,7 +20,7 @@
             <tr>
                 <td colspan="3">Общая стоимость:</td>
 
-                <td>  {{$order->getFullSum()}}₽</td>
+                <td>  {{$order->calculateFullSum()}}₽</td>
             </tr>
             </tbody>
         </table>
