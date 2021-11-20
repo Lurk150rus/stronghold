@@ -7,8 +7,8 @@
         @csrf
         <div class="form-group row">
             <label for="email" class="col-sm-4 col-form-label text-md-right">E-Mail</label>
-            @include('auth.layouts.error', ['fieldname'=>'email'])
             <div class="col-md-6">
+                @include('auth.layouts.error', ['fieldname'=>'email'])
                 <input id="email" type="email" class="form-control"
                        name="email" value="" required autofocus>
 
@@ -17,9 +17,9 @@
 
         <div class="form-group row">
             <label for="password" class="col-md-4 col-form-label text-md-right">Пароль</label>
-            @include('auth.layouts.error', ['fieldname'=>'password'])
 
             <div class="col-md-6">
+                @include('auth.layouts.error', ['fieldname'=>'password'])
                 <input id="password" type="password" class="form-control"
                        name="password" required>
 
