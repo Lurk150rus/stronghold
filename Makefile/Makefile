@@ -3,7 +3,7 @@
 MYSQL_CONTAINER_NAME = stronghold-mysql
 PHP_CONTAINER_NAME = stronghold-php
 NGINX_CONTAINER_NAME = stronghold-nginx
-DB_NAME = stronghold_db
+DB_NAME = stronghold
 MYSQL_USER = root
 MYSQL_PASS = root
 
