@@ -9,9 +9,9 @@ $(window).on("load resize", function () {
     let wrapHeight = $("body").innerHeight();
     let footerHeight = $("#footer").innerHeight();
     if (wrapHeight - footerHeight <= 900){
+        let footerHeight += 200;
         $("#footer")[0].classList.add('navbar-fixed-bottom');
         $("#footer").css("bottom", "-"+ footerHeight + "px");
-        console.log(document.getElementById("footer").style.background);
     } else{
         $("#footer")[0].classList.remove('navbar-fixed-bottom');
     }
