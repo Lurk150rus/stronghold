@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderCreated;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BasketController extends Controller
 {
@@ -26,8 +28,8 @@ class BasketController extends Controller
         }
         $order = Order::find($orderId);
         $success = $order->saveOrder($request->name, $request->phone);
-
         if ($success) {
+            Mail::to(env('MAIL_USERNAME', 't.tehstrong@yandex.ru'),)->send(new OrderCreated($order));
             session()->flash('success', 'Ваш заказ принят в обработку!');
         } else {
             session()->flash('warning', 'Случилась ошибка');

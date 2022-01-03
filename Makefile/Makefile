@@ -18,7 +18,7 @@ dump:
 	mysqldump -u $(MYSQL_USER) -p$(MYSQL_PASS) $(DB_NAME) > dump/new_dump.sql
 
 import:
-	mysql -u $(MYSQL_USER) -p$(MYSQL_PASS) $(DB_NAME) < dump/new_dump.sql
+	mysql -u $(MYSQL_USER) -p$(MYSQL_PASS) $(DB_NAME) < ../dump/new_dump.sql
 
 php_container:
 	$(EXEC_PHP)
