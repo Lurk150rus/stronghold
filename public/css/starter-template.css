@@ -1,5 +1,6 @@
 body {
     padding-top: 40px;
+    position: relative;
 }
 .navbar-fixed-bottom{
     position: absolute !important;
