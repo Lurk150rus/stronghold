@@ -18,6 +18,7 @@ Auth::routes([
     'confirm' => false,
     'verify' => false
 ]);
+Route::get('/about','App\Http\Controllers\MainController@about')->name('about');
 
 Route::middleware(['auth'])->group( function(){
 

@@ -1,7 +1,9 @@
 body {
     padding-top: 40px;
 }
-
+.navbar-fixed-bottom{
+    position: absolute !important;
+}
 .starter-template {
     padding: 20px 15px;
     text-align: center;
