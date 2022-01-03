@@ -15,4 +15,10 @@ $(window).on("load resize", function () {
     } else{
         $("#footer")[0].classList.remove('navbar-fixed-bottom');
     }
+
+    $("#burger").click(function (){
+        event.preventDefault();
+        $( "#navbar" ).toggleClass("collapse navbar-collapse");
+    });
 });
+

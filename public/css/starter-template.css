@@ -62,3 +62,17 @@ Some fixes
     flex-direction: column;
     justify-content: space-between;
 }
+.navbar-burger{
+    display: none;
+}
+@media (max-width: 766px) {
+    .navbar-header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar-burger{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
