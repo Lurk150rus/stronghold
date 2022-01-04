@@ -112,7 +112,7 @@
 
     <!-- Copyright -->
     <div class="text-center p-3">
-        © 2022 Copyright:
+        © <?= date("Y"); ?> Copyright:
         <strong class="text-white"> ООО "Техстронг"</strong>
     </div>
     <!-- Copyright -->
