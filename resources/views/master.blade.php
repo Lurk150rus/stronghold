@@ -17,11 +17,11 @@
 
 </head>
 <body>
-<div id="wrap">
+<div class="wrapper">
     <nav id="header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{route('index')}}">Интернет Магазин</a>
+                <a class="navbar-brand" href="{{route('index')}}"><b>TECHSTRONG</b></a>
                 <a href="#" id="burger" class="navbar-burger">
                     <svg style="fill: white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path
@@ -61,7 +61,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container content">
         <div class="starter-template">
             @if(session()->has('success'))
 
@@ -77,16 +77,15 @@
             @yield('content')
         </div>
     </div>
-</div>
 <footer class="bg-dark text-center text-white" id="footer" style="background:#222">
     <!-- Grid container -->
     <nav class="navbar navbar-inverse" style="border:none; ">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{route('index')}}">Интернет Магазин</a>
+                <a class="navbar-brand" href="{{route('index')}}"><b>TECHSTRONG</b></a>
             </div>
 
-            <div class="collapse navbar-collapse">
+            <div class=" navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li @routeactive(
                     'index')><a href="{{ route('index') }}">Все товары</a></li>
@@ -98,7 +97,7 @@
                     <li @routeactive(
                     'about')><a href="{{ route('about') }}">О нас</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-no-collapse navbar-nav navbar-right">
                     <li>
                         <a href="mailto:t.tehstrong@yandex.ru">t.tehstrong@yandex.ru</a>
                     </li>
@@ -118,6 +117,8 @@
     </div>
     <!-- Copyright -->
 </footer>
+</div>
+
 </body>
 
 <script src="//code-ya.jivosite.com/widget/9RGTU0D5OG" async></script>

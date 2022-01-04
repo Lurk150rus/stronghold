@@ -5,17 +5,16 @@ $(window).on("load resize", function () {
             maxHeight = $(this).height();
         }
     }).height(maxHeight);
-
+/*
     let wrapHeight = $("body").innerHeight();
     let footerHeight = document.getElementById('footer').offsetHeight;
-    console.log(footerHeight);
-    if (wrapHeight - footerHeight <= 1500){
+    if (wrapHeight - footerHeight <= 900){
         $("#footer")[0].classList.add('navbar-fixed-bottom');
         $("#footer").css("bottom", "-"+ footerHeight + "px");
         $("body").css("padding-bottom", ""+ footerHeight + "px");
     } else{
         $("#footer")[0].classList.remove('navbar-fixed-bottom');
-    }
+    }*/
 
     $("#burger").click(function (){
         event.preventDefault();
