@@ -93,7 +93,7 @@
                 <p>
                     <b>Генеральный директор</b><br>
                     Михаил Викторович Шумилишский, <br>
-                    <a href="&quot;mailto:mikhail.shumilishskiy@yandex.ru&quot;">mikhail.shumilishskiy@yandex.ru</a>
+                    <a href="mailto:mikhail.shumilishskiy@yandex.ru">mikhail.shumilishskiy@yandex.ru</a>
                     <br>
                     8 985 169-73-07
                 </p>
